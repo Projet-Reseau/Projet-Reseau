@@ -1,68 +1,121 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/llayAbout" android:orientation="vertical"
-	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:paddingTop="4dp" android:paddingLeft="10dp" android:paddingRight="10dp">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llayAbout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="4dp" >
 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_marginBottom="6dp"
- 		  android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:textSize="28dp" android:textStyle="bold" android:textColor="#FF4466AA"
-			android:layout_marginRight="6dp"						
-		  android:text="@string/app_name"/>
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:textSize="20dp" android:textStyle="bold" android:textColor="#AA4466AA"
-			android:layout_marginRight="6dp"						
-		  android:text="@string/app_versionstr"/>		  		  
-		<TextView android:id="@+id/txtVersionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:textSize="20dp" android:textStyle="bold" android:textColor="#FFBF6000"
-			android:layout_marginRight="6dp"						
-		  android:text=""/>	
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:textSize="20dp" android:textStyle="bold" android:textColor="#FF40A040"
-			android:layout_marginRight="6dp"						
-		  android:text="@string/app_type"/>
-	</LinearLayout>
-	   	    	  
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_marginBottom="6dp"
- 		  android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/txtViewAbout"
-	  	android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-			android:textSize="16dp" 
-	    android:text="@string/app_about"/>
-	</LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal" >
 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
- 		  android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:textSize="16dp" 
-		  android:text="@string/app_author"/>
-	</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="@string/app_name"
+            android:textColor="#FF4466AA"
+            android:textSize="28dp"
+            android:textStyle="bold" />
 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_marginBottom="6dp"
- 		  android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:textSize="16dp" 
-		  android:text="@string/app_authorcopy"/> 		   		  
-	</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="@string/app_versionstr"
+            android:textColor="#AA4466AA"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:padding="4dp"
- 		  android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_marginRight="6dp"
-			android:textSize="16dp"
-			android:textColor="#FF666666" 
-		  android:text="@string/app_website"/>
-		<TextView android:id="@+id/txtViewLinkWWW"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-	    android:autoLink="web"
-			android:textSize="16dp"
-		  android:text="@string/app_author_www"/>
-	</LinearLayout>	
+        <TextView
+            android:id="@+id/txtVersionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text=""
+            android:textColor="#FFBF6000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="@string/app_type"
+            android:textColor="#FF40A040"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtViewAbout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_about"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_author"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_authorcopy"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5.93"
+        android:orientation="horizontal"
+        android:padding="4dp" >
+
+        <TextView
+            android:id="@+id/txtViewLinkWWW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/app_author_www"
+            android:textSize="16dp" />
+
+        <android.widget.CalendarView
+            android:id="@+id/calendarView1"
+            android:layout_width="match_parent"
+            android:layout_height="302dp"
+            android:layout_weight="0.97" />
+    </LinearLayout>
 
 </LinearLayout>

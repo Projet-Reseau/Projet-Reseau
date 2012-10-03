@@ -1,12 +1,12 @@
-!SESSION 2012-10-03 17:03:44.390 -----------------------------------------------
+!SESSION 2012-10-03 20:39:40.274 -----------------------------------------------
 eclipse.buildId=M20120914-1800
 java.version=1.7.0_07
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
-Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -data C:\Users\Sylvain\Documents\GitHub\Projet-Reseau -product org.eclipse.epp.package.jee.product
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-03 17:04:22.748
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-03 20:40:45.262
 !MESSAGE New Project Wizard failed
 !STACK 0
 java.lang.reflect.InvocationTargetException
@@ -40,40 +40,53 @@ org.eclipse.core.internal.resources.ResourceException: Invalid project descripti
 	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
 Contains: OK
-Contains: C:\Users\Sylvain\Documents\GitHub\Projet-Reseau\ancal overlaps the location of another project: 'ancal'
+Contains: C:\Users\Sylvain\Documents\GitHub\Projet-Reseau\SyncApp overlaps the location of another project: 'SyncApp'
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-03 17:04:52.653
-!MESSAGE New Project Wizard failed
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-03 20:41:41.417
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/SyncApp/res' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:341)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:215)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:266)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:249)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$6.run(Sdk.java:1307)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2012-10-03 20:41:41.418
+!MESSAGE Resource '/SyncApp/res' does not exist.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2012-10-03 20:43:59.373
+!MESSAGE No projects found for [C:\Users\Sylvain\Documents\GitHub\Projet-Reseau\SyncApp\res\values\strings.xml]
+!SESSION 2012-10-03 21:07:56.552 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-03 21:08:27.253
+!MESSAGE Exception in checkAndLoadTargetData.
 !STACK 0
-java.lang.reflect.InvocationTargetException
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:635)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:553)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:365)
-	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
-	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
-Caused by: org.eclipse.core.internal.resources.ResourceException: Invalid project description.
-	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
-	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
-	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
-	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:674)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:620)
-	... 6 more
-Root exception:
-org.eclipse.core.internal.resources.ResourceException: Invalid project description.
-	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
-	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
-	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
-	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:674)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:620)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:553)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:365)
-	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
-	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
-Contains: OK
-Contains: C:\Users\Sylvain\Documents\GitHub\Projet-Reseau\ancal overlaps the location of another project: 'ancal'
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at com.android.ide.eclipse.adt.AdtPlugin.updateTargetListeners(AdtPlugin.java:1699)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$5.run(Sdk.java:578)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-03 21:08:27.357
+!MESSAGE Parsing Data for android-16 failed
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at com.android.ide.eclipse.adt.AdtPlugin.updateTargetListeners(AdtPlugin.java:1699)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$5.run(Sdk.java:578)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)

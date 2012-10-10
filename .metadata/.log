@@ -90,3 +90,16 @@ org.eclipse.swt.SWTException: Device is disposed
 	at com.android.ide.eclipse.adt.AdtPlugin.updateTargetListeners(AdtPlugin.java:1699)
 	at com.android.ide.eclipse.adt.internal.sdk.Sdk$5.run(Sdk.java:578)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2012-10-10 10:24:34.900 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-10 10:25:31.012
+!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project SyncApp
+
+!ENTRY org.eclipse.core.jobs 2 2 2012-10-10 10:25:49.294
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.android.ide.eclipse.adt.internal.sdk.Sdk$5

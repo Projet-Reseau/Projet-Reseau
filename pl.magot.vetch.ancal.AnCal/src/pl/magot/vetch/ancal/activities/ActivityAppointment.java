@@ -5,6 +5,9 @@
 package pl.magot.vetch.ancal.activities;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.*;
 import pl.magot.vetch.widgets.*;
 import pl.magot.vetch.ancal.CommonActivity;
@@ -44,7 +47,15 @@ public class ActivityAppointment extends CommonActivity
 	private int iRepeatType = -1;
 	private int iRepeatEvery = 0;
 	private Calendar dateEndOn = null;
+	
+	//Variable pour la gestion du fichier
+	private String sujet;
+	private String date;
+	private File fichiersave = null; // Ajout variable fichier
+	private int i = 0;
+	private long tempsmilli;	// La date, dans les fonctions devellopé par le createur d'ancal, est au format long (il utilise les millisecondes donc nous aussi ^^)
 
+	
   //methods
   @Override
   public void onCreate(Bundle icicle)
@@ -132,7 +143,7 @@ public class ActivityAppointment extends CommonActivity
 				SaveData();
 			}		
   	});
-  	//Rejeter un rendez-vous reviens a suprimer l'information
+  	//Rejeter un rendez-vous reviens a suprimer l'information (voir la fonction DeleteDate() pour mieux comprendre)
   	btnRejeter = (ImageButton)findViewById(R.id.btnRejeter);
   	btnRejeter.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -238,7 +249,7 @@ public class ActivityAppointment extends CommonActivity
   	{
   		sSubTitle = utils.GetResStr(R.string.titleNewAppointment);
       btnDelete.setVisibility(View.INVISIBLE);
-  		
+  		btnRejeter.setVisibility(View.INVISIBLE);
 			//initialize data
   		SetStartDateByAgendaView(dateStart);
   		updateStartDateTimeForNewAppointment(dateStart);
@@ -273,29 +284,45 @@ public class ActivityAppointment extends CommonActivity
   	}
   	
   	//SI PROPOSITION DE RENDEZ-VOUS
-  	/*
-  	if (GetStartMode() == StartMode.EDIT)
+  	//*
+  	if (GetStartMode() == StartMode.CHOIX)
   	{
-      sSubTitle = utils.GetResStr(R.string.titleEditAppointment);
-      
-      dateStart.setTimeInMillis(dataRow.GetStartDate().getTimeInMillis());
+  		sSubTitle = utils.GetResStr(R.string.titleNewAppointment);
+  		File dir = getDir("Fichiers",MODE_PRIVATE);
+		  fichiersave = new File(dir.getAbsolutePath() + File.separator + "troll.txt");
+  		try{
+  			StringBuffer lu = new StringBuffer();
+  			FileInputStream trololo = new FileInputStream(fichiersave);
+  			while ((i = trololo.read()) != -1) {	// Lecture des caracteres 1 a 1, il faut faire ici un decoupage pour que tout aille dans les bonnes variables (sujet et date)
+          lu.append( (char) i);
+  			}
+  			sujet=lu.toString();
+  			trololo.close();
+  		}catch (IOException e) {
+  	    e.printStackTrace();
+  		}
+  		edSubject.setText(sujet);
+      dateStart.setTimeInMillis(tempsmilli); // les fonctions ont toutes ete prevus pour fonctionner avec le timestamp (temps en millisecondes)
       
   		btnRejeter.setVisibility(View.VISIBLE);
   		btnAccepter.setVisibility(View.VISIBLE);
-  		
-  		btnSave.setVisibility(View.INVISIBLE);
-  		btnDelete.setVisibility(View.INVISIBLE);
-  		
-  		edSubject.setText(dataRow.GetSubject());
-    	chkAllDay.setChecked(dataRow.GetAllDay());
-    	chkAlarm.setChecked(dataRow.GetAlarm());
+
+			//initialize data
+  		SetStartDateByAgendaView(dateStart);
+  		updateStartDateTimeForNewAppointment(dateStart);
+    	SetStartTimeForDayAgendaView(dateStart);
     	
+    	chkAllDay.setChecked(false);
+    	chkAlarm.setChecked(true);
+      
     	//repeat data
-    	iRepeatType = dataRow.GetRepeat().GetRepeatTypeAsInt();
-    	iRepeatEvery = dataRow.GetRepeat().GetEvery();
-    	dateEndOn.setTimeInMillis(dataRow.GetRepeat().GetEndOnDate().getTimeInMillis());
+    	iRepeatType = 0; //none
+    	iRepeatEvery = 1;
+    	dateEndOn.setTimeInMillis(0); //no end date  
   	}
-  	*/
+  	
+  	//*/
+  	
   	restoreStateFromFreezeIfRequired();
   	
   	SetActivityTitle(sSubTitle);
@@ -373,8 +400,15 @@ public class ActivityAppointment extends CommonActivity
 	
   public void DeleteData()
   {  	
-		if (DeleteDataFromTable(dataTable))
-			CloseActivity(dataTable);
+		if(GetStartMode() == StartMode.CHOIX){
+			CloseActivity();			// Ajout d'une fonctionnalité pour le bouton rejet de rendez vous
+		}
+		else{
+			if (DeleteDataFromTable(dataTable)){
+				CloseActivity(dataTable);
+			}
+		}
+
   }
   
   @Override

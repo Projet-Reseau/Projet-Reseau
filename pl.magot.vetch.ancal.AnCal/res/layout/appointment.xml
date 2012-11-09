@@ -135,36 +135,8 @@
 			    android:layout_width="fill_parent" android:layout_height="wrap_content"/>			    		   
 			  	        
 		</LinearLayout>
-			
-		<!-- BUTTONS DELETE/SAVE -->
-	 	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_width="fill_parent" android:layout_height="wrap_content">
-	
-	   	<ImageButton android:id="@+id/btnAppointmentDelete"
-	    	android:layout_width="@dimen/closeBtnWidth"
-	    	android:layout_height="wrap_content"
-	    	android:focusable="true"
-	    	android:layout_alignParentLeft="true"
-	    	android:layout_alignParentBottom="true"
-	    	android:text="@string/btnDelete"
-	    	android:gravity="center"
-			  android:nextFocusRight="@+id/btnAppointmentSave"    	
-	    	android:src="@drawable/checkmarkdelete"/>
-	    	
-	   	<ImageButton android:id="@+id/btnAppointmentSave"
-	    	android:layout_width="@dimen/closeBtnWidth"
-	    	android:layout_height="wrap_content"
-	    	android:focusable="true"
-	    	android:layout_alignParentRight="true"
-	    	android:layout_alignParentBottom="true"
-	    	android:text="@string/btnSave"
-	    	android:gravity="center"
-			  android:nextFocusLeft="@+id/btnAppointmentDelete"    	
-	    	android:src="@drawable/checkmarkok"/>
-	
-		</RelativeLayout>
 		
-	 	<!-- BOUTON REFUSER/ACCEPTER -->
+			<!-- BOUTON REFUSER/ACCEPTER -->
 		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_width="fill_parent" android:layout_height="wrap_content">
 	
@@ -177,7 +149,7 @@
 	    	android:text="@string/btnRejeter"
 	    	android:gravity="center"
 			  android:nextFocusRight="@+id/btnAccepter"    	
-	    	android:src="@drawable/checkmarkdelete"/>
+	    	android:src="@drawable/rdpok"/>
 	    	
 	   	<ImageButton android:id="@+id/btnAccepter"
 	    	android:layout_width="@dimen/closeBtnWidth"
@@ -188,7 +160,39 @@
 	    	android:text="@string/btnAccepter"
 	    	android:gravity="center"
 			  android:nextFocusLeft="@+id/btnRejeter"    	
-	    	android:src="@drawable/checkmarkok"/>
+	    	android:src="@drawable/rdok"/>
 	
 		</RelativeLayout>
+		
+		<!-- BUTTONS DELETE/SAVE -->
+	 	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+	    	
+	   	<ImageButton android:id="@+id/btnAppointmentSave"
+	    	android:layout_width="@dimen/closeBtnWidth"
+	    	android:layout_height="wrap_content"
+	    	android:focusable="true"
+	    	android:layout_alignParentRight="true"
+	    	android:layout_alignParentBottom="true"
+	    	android:text="@string/btnSave"
+	    	android:gravity="center"
+			  android:nextFocusLeft="@+id/btnAppointmentDelete"    	
+	    	android:src="@drawable/checkmarkok"/>
+
+	   	<ImageButton
+	   	    android:id="@+id/btnAppointmentDelete"
+	   	    android:layout_width="@dimen/closeBtnWidth"
+	   	    android:layout_height="wrap_content"
+	   	    android:layout_alignParentLeft="true"
+	   	    android:layout_alignParentTop="true"
+	   	    android:layout_marginLeft="22dp"
+	   	    android:focusable="true"
+	   	    android:gravity="center"
+	   	    android:nextFocusRight="@+id/btnAppointmentSave"
+	   	    android:src="@drawable/checkmarkdelete"
+	   	    android:text="@string/btnDelete" />
+	
+		</RelativeLayout>
+		
+	 
 </LinearLayout>

@@ -2,22 +2,11 @@
 package pl.magot.vetch.ancal.activities;
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import pl.magot.vetch.ancal.CommonActivity;
 import pl.magot.vetch.ancal.R;
 import pl.magot.vetch.ancal.Utils;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 //New Note activity
@@ -50,8 +39,6 @@ public class ActivityAbout extends CommonActivity
   {
   	txtView = (TextView)findViewById(R.id.txtViewAbout);
   	txtVersionLabel = (TextView)findViewById(R.id.txtVersionLabel);
-  		
-  	
   }
   
   private void InitState()
@@ -68,12 +55,6 @@ public class ActivityAbout extends CommonActivity
 	protected void restoreStateFromFreeze()
 	{
 		
-	
-	
-
-
 	}
+   
 }
-
-
-

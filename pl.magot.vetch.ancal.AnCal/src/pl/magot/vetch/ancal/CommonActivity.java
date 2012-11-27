@@ -18,13 +18,14 @@ import android.os.Bundle;
 
 public abstract class CommonActivity extends Activity
 {
-	// enum
+	
 	//Ajout de CHOIX comme mode de demarrage
 	public enum StartMode
 	{
 		Default, EDIT, NEW, VIEW, CHOIX
 	};
-
+	
+	//enum
 	public enum Action
 	{
 		Default, ShowMsg
@@ -58,6 +59,7 @@ public abstract class CommonActivity extends Activity
 	// methods
 	public CommonActivity()
 	{
+		//Inserer ici lecture du fichier ?
 	}
 
 	@Override
@@ -79,7 +81,6 @@ public abstract class CommonActivity extends Activity
 	public void onStart()
 	{
 		super.onStart();
-
 	}
 
 	@Override
@@ -142,7 +143,7 @@ public abstract class CommonActivity extends Activity
 				
 				try{
 					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fichiersave,true))); //on ecrit a la fin du fichier
-					writer.write("1211612300169"); // 1211612300169 = timestamp 4/09/1983 
+					writer.write("1211580000"); // 23 mai 2008
 				}catch (IOException e) {
 		      e.printStackTrace();
 				}finally {
@@ -185,8 +186,12 @@ public abstract class CommonActivity extends Activity
 		setTitle(sTitle);
 	}
 
+	
+	//Fonction OpenActivity a modifier pour lancer l'appel a ActivityAppointment en cas de proposition de rendez-vous
+	
 	public void OpenActivity(int iActivityRequestCode, String sAction)
 	{
+		//if(GetStartMode() == StartMode.CHOIX) OpenActivity(0, "android.intent.action.AnCal.ACTION_MODE_NEW_APPOINTMENT",-1);
 		OpenActivity(iActivityRequestCode, sAction, -1);
 	}
 

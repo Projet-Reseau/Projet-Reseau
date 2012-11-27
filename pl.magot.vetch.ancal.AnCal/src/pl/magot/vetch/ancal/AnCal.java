@@ -7,6 +7,8 @@ package pl.magot.vetch.ancal;
 
 import java.util.*;
 import java.text.*;
+
+import pl.magot.vetch.ancal.CommonActivity.StartMode;
 import pl.magot.vetch.ancal.agenda.*;
 import pl.magot.vetch.ancal.database.*;
 import pl.magot.vetch.ancal.dataview.*;
@@ -109,13 +111,14 @@ public class AnCal extends CommonActivity
   public void onStart()
   {
   	super.onStart();
-  	
+  	if(GetStartMode() == StartMode.CHOIX) OpenActivity(0, "android.intent.action.AnCal.ACTION_MODE_NEW_APPOINTMENT");
   }
   
   @Override
   public void onResume()
   {
   	super.onResume();
+  	if(GetStartMode() == StartMode.CHOIX) OpenActivity(0, "android.intent.action.AnCal.ACTION_MODE_NEW_APPOINTMENT");
 
   }
     

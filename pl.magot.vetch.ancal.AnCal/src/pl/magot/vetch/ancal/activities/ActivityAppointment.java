@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
+
 import pl.magot.vetch.widgets.*;
 import pl.magot.vetch.ancal.CommonActivity;
 import pl.magot.vetch.ancal.R;
@@ -50,7 +51,6 @@ public class ActivityAppointment extends CommonActivity
 	
 	//Variable pour la gestion du fichier
 	private String sujet;
-	private String date;
 	private File fichiersave = null; // Ajout variable fichier
 	private int i = 0;
 	private long tempsmilli;	// La date, dans les fonctions devellopé par le createur d'ancal, est au format long (il utilise les millisecondes donc nous aussi ^^)
@@ -285,7 +285,8 @@ public class ActivityAppointment extends CommonActivity
   	
   	//SI PROPOSITION DE RENDEZ-VOUS
   	//*
-  	if (GetStartMode() == StartMode.CHOIX)
+  
+  	if (GetStartMode() == StartMode.CHOIX)	//A deplacer dans CommonActivity pour execution au demarage
   	{
   		sSubTitle = utils.GetResStr(R.string.titleNewAppointment);
   		File dir = getDir("Fichiers",MODE_PRIVATE);
@@ -296,21 +297,20 @@ public class ActivityAppointment extends CommonActivity
   			while ((i = trololo.read()) != -1) {	// Lecture des caracteres 1 a 1, il faut faire ici un decoupage pour que tout aille dans les bonnes variables (sujet et date)
           lu.append( (char) i);
   			}
+  			//Apres la lecture il faut suprimmer les données lu du buffer puis re-ecrire le buffer dans le fichier texte
   			sujet=lu.toString();
   			trololo.close();
   		}catch (IOException e) {
   	    e.printStackTrace();
   		}
   		edSubject.setText(sujet);
-      dateStart.setTimeInMillis(tempsmilli); // les fonctions ont toutes ete prevus pour fonctionner avec le timestamp (temps en millisecondes)
-      
+  		tempsmilli = Long.parseLong(sujet);
+  		dateStart.setTimeInMillis(tempsmilli*1000);  // Conversion du timestamp en milliseconde
+  		dataRow.SetStartDate(dateStart); // Les fonctions ont toutes ete prevus pour fonctionner avec le timestamp (temps en millisecondes)
+      btnStartTime.setText(utils.GetLongDate(dateStart));
   		btnRejeter.setVisibility(View.VISIBLE);
   		btnAccepter.setVisibility(View.VISIBLE);
 
-			//initialize data
-  		SetStartDateByAgendaView(dateStart);
-  		updateStartDateTimeForNewAppointment(dateStart);
-    	SetStartTimeForDayAgendaView(dateStart);
     	
     	chkAllDay.setChecked(false);
     	chkAlarm.setChecked(true);
